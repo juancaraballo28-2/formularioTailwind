@@ -4,50 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/tailwind.css">
+   <!-- {% load static %} -->
+    <link rel="stylesheet" href='./css/tailwind.css'>
     <title>Landing Page</title>
 </head>
+<style>
+</style>
 <body>
+
+        <div class="section1">
+            <div class="h-96"></div>
+            <div class="h-96"></div>
+        </div>
+        <div class="section2">
+            <div class="h-96"></div>
+            <div class="h-96"></div>
+        </div>
+        
+
+    <!-- 
+
+    <div class="grid grid-cols-3">
+      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="md:flex">
+          <div class="md:shrink-0">
+            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
+          </div>
+          <div class="p-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
+            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="md:flex">
+          <div class="md:shrink-0">
+            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
+          </div>
+          <div class="p-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
+            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="md:flex">
+          <div class="md:shrink-0">
+            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
+          </div>
+          <div class="p-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
+            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    
+ 
+    <!--Formulario-->  
     <div class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
               <h3 class="text-lg font-medium leading-6 text-gray-900">Contácto</h3>
-              <p class="mt-1 text-sm text-gray-600">Brindanos tu información y te contactaremos en el menor tiempo posible</p>
+              
             </div>
           </div>
-          <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
-              <div class="shadow overflow-hidden sm:rounded-md">
-                <div class="px-4 py-5 bg-white sm:p-6">
-                  <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                      <input type="text" name="nombre" id="nombre" autocomplete="Nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+         <!-- {% if sent %} 
+             <h1 class="mt-1 text-sm text-gray-600">Nos contactaremos en el menor tiempo posible</h1>
+          {% else %} -->
+            <p class="mt-1 text-sm text-gray-600">Brindanos tu información y te contactaremos en el menor tiempo posible</p>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+              <form action="mensaje/" method="POST">
+               <!-- {% csrf_token %}-->
+                <div class="shadow overflow-hidden sm:rounded-md">
+                  <div class="px-4 py-5 bg-white sm:p-6">
+                    <div class="grid grid-cols-6 gap-6">
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                      <!-- <input type="text" name="nombre" id="nombre" autocomplete="Nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> -->
+                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
+                        </div>  
+                      </div>
+        
+                      <div class="col-span-6 sm:col-span-3">
+                        <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+                        <!--<input type="text" name="telefono" id="telefono" autocomplete="Teléfono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
+                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                      </div>
+        
+                      <div class="col-span-6 sm:col-span-4">
+                        <label for="correo" class="block text-sm font-medium text-gray-700">Correo Eléctronico</label>
+                        <!--<input type="email" name="correo" id="correo" autocomplete="Correo Eléctronico" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
+                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                      </div>
+                      <!--<div class="col-span-6 sm:col-span-6">
+                        <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                        <input type="text" name="mensaje" id="mensaje" autocomplete="mensaje" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      </div>-->
                     </div>
-      
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                      <input type="text" name="telefono" id="telefono" autocomplete="Teléfono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                    </div>
-      
-                    <div class="col-span-6 sm:col-span-4">
-                      <label for="correo" class="block text-sm font-medium text-gray-700">Correo Eléctronico</label>
-                      <input type="email" name="correo" id="correo" autocomplete="Correo Eléctronico" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                    </div>
-                    <!--<div class="col-span-6 sm:col-span-6">
-                      <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                      <input type="text" name="mensaje" id="mensaje" autocomplete="mensaje" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                    </div>-->
+                  </div>
+                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar</button>
                   </div>
                 </div>
-                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar</button>
-                </div>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+           <!--  {% endif %} -->
         </div> 
-      </div>
+      </div> 
 </body>
+<script>
+    const colors = ['#092327', '#0b5351', '#00a9a5', '#4e8098', '#90c2e7']
+    const section1 = document.querySelector('.section1')
+    const section2 = document.querySelector('.section2')
+     window.addEventListener('scroll', () => {
+        let y = 0 
+        section1.style.backgroundColor = colors[0]
+        section2.style.backgroundColor = colors[1]
+    })
+</script>
+
 </html>
