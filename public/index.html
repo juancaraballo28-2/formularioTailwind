@@ -14,7 +14,7 @@
 </style>
 
 <body class="bg-cyan-50 2xl:content-center xl:content-center lg:content-center">
-  <div x-data="Components.popover({ open: false, focus: true })" x-init="init()" @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
+  <div x-data="{ open: false, focus: true }"  @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
     <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
       <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -27,7 +27,7 @@
             <div class="-mr-2 flex items-center md:hidden">
               <button type="button"
                 class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                aria-expanded="false" @click="toggle" @mousedown="if (open) $event.preventDefault()"
+                aria-expanded="false" @click="open = ! open" @mousedown="if (open) $event.preventDefault()"
                 :aria-expanded="open.toString()">
                 <span class="sr-only">Open main menu</span>
                 <!-- Heroicon name: outline/menu -->
@@ -67,7 +67,7 @@
           <div class="-mr-2">
             <button type="button"
               class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              @click="toggle">
+              @click="open = ! open">
               <span class="sr-only">Close main menu</span>
               <!-- Heroicon name: outline/x -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
