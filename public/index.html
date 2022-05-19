@@ -1,136 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- {% load static %} -->
-    <link rel="stylesheet" href='./css/tailwind.css'>
-    <title>Landing Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- {% load static %} -->
+  <link rel="stylesheet" href='./css/tailwind.css'>
+  <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+  <title>Landing Page</title>
 </head>
 <style>
 </style>
-<body>
 
-        <div class="section1">
-            <div class="h-96"></div>
-            <div class="h-96"></div>
-        </div>
-        <div class="section2">
-            <div class="h-96"></div>
-            <div class="h-96"></div>
-        </div>
-        
-
-    <!-- 
-
-    <div class="grid grid-cols-3">
-      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div class="md:flex">
-          <div class="md:shrink-0">
-            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
-          </div>
-          <div class="p-8">
-            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div class="md:flex">
-          <div class="md:shrink-0">
-            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
-          </div>
-          <div class="p-8">
-            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div class="md:flex">
-          <div class="md:shrink-0">
-            <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
-          </div>
-          <div class="p-8">
-            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-            <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-            <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    
- 
-    <!--Formulario-->  
-    <div class="mt-10 sm:mt-0">
-        <div class="md:grid md:grid-cols-3 md:gap-6">
-          <div class="md:col-span-1">
-            <div class="px-4 sm:px-0">
-              <h3 class="text-lg font-medium leading-6 text-gray-900">Contácto</h3>
-              
+<body class="bg-cyan-50 2xl:content-center xl:content-center lg:content-center">
+  <div x-data="Components.popover({ open: false, focus: true })" x-init="init()" @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
+    <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+      <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+        <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+          <div class="flex items-center justify-between w-full md:w-auto">
+            <a href="#">
+              <span class="sr-only">Workflow</span>
+              <img alt="Workflow" class="h-8 w-auto sm:h-10"
+                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
+            </a>
+            <div class="-mr-2 flex items-center md:hidden">
+              <button type="button"
+                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                aria-expanded="false" @click="toggle" @mousedown="if (open) $event.preventDefault()"
+                :aria-expanded="open.toString()">
+                <span class="sr-only">Open main menu</span>
+                <!-- Heroicon name: outline/menu -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
-         <!-- {% if sent %} 
-             <h1 class="mt-1 text-sm text-gray-600">Nos contactaremos en el menor tiempo posible</h1>
-          {% else %} -->
-            <p class="mt-1 text-sm text-gray-600">Brindanos tu información y te contactaremos en el menor tiempo posible</p>
-            <div class="mt-5 md:mt-0 md:col-span-2">
-              <form action="mensaje/" method="POST">
-               <!-- {% csrf_token %}-->
-                <div class="shadow overflow-hidden sm:rounded-md">
-                  <div class="px-4 py-5 bg-white sm:p-6">
-                    <div class="grid grid-cols-6 gap-6">
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                      <!-- <input type="text" name="nombre" id="nombre" autocomplete="Nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> -->
-                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
-                        </div>  
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                        <!--<input type="text" name="telefono" id="telefono" autocomplete="Teléfono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
-                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-4">
-                        <label for="correo" class="block text-sm font-medium text-gray-700">Correo Eléctronico</label>
-                        <!--<input type="email" name="correo" id="correo" autocomplete="Correo Eléctronico" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
-                        <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                      </div>
-                      <!--<div class="col-span-6 sm:col-span-6">
-                        <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                        <input type="text" name="mensaje" id="mensaje" autocomplete="mensaje" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>-->
-                    </div>
-                  </div>
-                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-           <!--  {% endif %} -->
-        </div> 
-      </div> 
+        </div>
+  
+        <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+          <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
+  
+          <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+  
+          <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
+  
+          <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
+  
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+        </div>
+      </nav>
+    </div>
+    <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+      x-description="Mobile menu, show/hide based on menu open state."
+      class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" x-ref="panel"
+      @click.away="open = false">
+      <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+        <div class="px-5 pt-4 flex items-center justify-between">
+          <div>
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+          </div>
+          <div class="-mr-2">
+            <button type="button"
+              class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              @click="toggle">
+              <span class="sr-only">Close main menu</span>
+              <!-- Heroicon name: outline/x -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="#"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
+  
+          <a href="#"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
+  
+          <a href="#"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Marketplace</a>
+  
+          <a href="#"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Company</a>
+        </div>
+        <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
+          Log in </a>
+      </div>
+    </div>
+  
+
+  </div>
+  
+
+  <!-- Seccion hecha-->
+
+
+  <div
+    class="grid grid-cols-1 2xl:grid-cols-3 gap-3 xl:grid-cols-3 gap-3 lg:grid-cols-3 gap-3 md:grid-cols-3 gap-2 sm:grid-cols-1">
+
+
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
-<script>
-    const colors = ['#092327', '#0b5351', '#00a9a5', '#4e8098', '#90c2e7']
-    const section1 = document.querySelector('.section1')
-    const section2 = document.querySelector('.section2')
-     window.addEventListener('scroll', () => {
-        let y = 0 
-        section1.style.backgroundColor = colors[0]
-        section2.style.backgroundColor = colors[1]
-    })
-</script>
+
 
 </html>
