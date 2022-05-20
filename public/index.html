@@ -13,7 +13,7 @@
 <style>
 </style>
 
-<body class="bg-cyan-50 2xl:content-center xl:content-center lg:content-center">
+<body class="h-full bg-cyan-50 2xl:content-center xl:content-center lg:content-center">
   <div x-data="{ open: false, focus: true }"  @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
     <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
       <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
@@ -103,6 +103,52 @@
 
 
   <div
+    class="grid grid-cols-1 gap-3 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
+
+
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-5xl m-8 bg-white rounded-xl shadow-md overflow-hidden md:max-w-5xl h-72">
+      <div class="md:flex">
+        <div class="p-8 md:p-4">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers
+            for your new business</a>
+          <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five
+            ideas you can use to find your first customers.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Seccion hecha-->
+
+
+  <div
     class="grid grid-cols-1 2xl:grid-cols-3 gap-3 xl:grid-cols-3 gap-3 lg:grid-cols-3 gap-3 md:grid-cols-3 gap-2 sm:grid-cols-1">
 
 
@@ -143,6 +189,65 @@
       </div>
     </div>
 
+  </div>
+
+  <!--Formulario-->
+
+  <div class="grid grid-cols-1 m-8">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Contácto</h3>
+          
+        </div>
+      </div>
+     <!-- {% if sent %} -->
+         <h1 class="mt-1 text-sm text-gray-600">Nos contactaremos en el menor tiempo posible</h1>
+     <!-- {% else %} -->
+        <p class="mt-1 text-sm text-gray-600">Brindanos tu información y te contactaremos en el menor tiempo posible</p>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <form action="mensaje/" method="POST">
+           <!-- {% csrf_token %} -->
+            <div class="shadow overflow-hidden sm:rounded-md">
+              <div class="px-4 py-5 bg-white sm:p-6">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                  <!-- <input type="text" name="nombre" id="nombre" autocomplete="Nombre" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> -->
+                    <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
+                   <!-- {{form.nombre}} -->
+                    </div>  
+                  </div>
+    
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+                    <!--<input type="text" name="telefono" id="telefono" autocomplete="Teléfono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
+                    <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                     <!-- {{form.telefono}} -->
+                    </div>
+                  </div>
+    
+                  <div class="col-span-6 sm:col-span-4">
+                    <label for="correo" class="block text-sm font-medium text-gray-700">Correo Eléctronico</label>
+                    <!--<input type="email" name="correo" id="correo" autocomplete="Correo Eléctronico" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">-->
+                    <div class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                     <!-- {{form.correo}} -->
+                    </div>
+                  </div>
+                  <!--<div class="col-span-6 sm:col-span-6">
+                    <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                    <input type="text" name="mensaje" id="mensaje" autocomplete="mensaje" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  </div>-->
+                </div>
+              </div>
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+       <!-- {% endif %} -->
+    </div> 
   </div>
 </body>
 
